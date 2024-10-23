@@ -2,12 +2,6 @@
 
 Blog entries are created in the [posts](./posts) directory as markdown files. Each blog post is put into a directory named after the year/month/day it was created.
 
-## Testing PR
-
-Pushing a new branch to this repository will create a new GitHub Pages deployment as the branch name.
-
-So for example if you push a git branch named `2024-10-23` you can see the results at https://lehigh-university-libraries.github.io/blog/2024-10-23 before effecting the live site.
-
 ## Testing locally
 
 If instead of using a PR to test your changes, you also can run the site locally.
