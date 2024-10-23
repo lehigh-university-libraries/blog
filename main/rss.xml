@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>Lehigh Library Technology Blog</title>
+        <link>https://lehigh-university-libraries.github.io/blog/</link>
+        <description></description>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 23 Oct 2024 19:00:57 GMT</lastBuildDate>
+        <pubDate>Wed, 23 Oct 2024 19:00:57 GMT</pubDate>
+        
+        <item>
+            <title>Introducing the Lehigh Library Technology Blog</title>
+            <link>https://lehigh-university-libraries.github.io/blog//bootstrap.html</link>
+            <description><![CDATA[Welcome to the <a href="https://lts.lehigh.edu/about/lts-staff-directory?profile_team[313]=313">Lehigh University Libraries Technology Team</a> blog!]]></description>
+            <pubDate>2024-10-23</pubDate>
+            <guid>https://lehigh-university-libraries.github.io/blog//bootstrap.html</guid>
+        </item>
+        
+    </channel>
+</rss>
