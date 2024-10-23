@@ -2,7 +2,7 @@
 title: "Introducing the Lehigh Library Technology Blog"
 date: "2024-10-23"
 author: "Joe Corall"
-tags: ["technology", "blog", "tutorial"]
+tags: ["technology", "blog"]
 ---
 
 Welcome to the [Lehigh University Libraries Technology Team](https://lts.lehigh.edu/about/lts-staff-directory?profile_team[313]=313) blog!
