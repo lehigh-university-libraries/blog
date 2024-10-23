@@ -14,10 +14,10 @@
 <body>
     {{ header|safe }}
     <main class="p-5">
-        <h1>Blog</h1>
+        <h1>Lehigh Library Technology Blog</h1>
         <div class="posts">
             {% for post in posts %}
-            <article>
+            <article class="mb-3">
                 <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
                 <p><em>Published on {{ post.date }}</em></p>
                 <p>{{ post.snippet }}...</p>
