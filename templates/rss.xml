@@ -10,10 +10,10 @@
         {% for post in posts %}
         <item>
             <title>{{ post.title }}</title>
-            <link>{{ blog_url }}/{{ post.url }}</link>
+            <link>{{ blog_url }}{{ post.url }}</link>
             <description><![CDATA[{{ post.snippet }}]]></description>
             <pubDate>{{ post.date }}</pubDate>
-            <guid>{{ blog_url }}/{{ post.url }}</guid>
+            <guid>{{ blog_url }}{{ post.url }}</guid>
         </item>
         {% endfor %}
     </channel>
