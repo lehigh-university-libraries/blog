@@ -14,10 +14,11 @@ mkdir -p YYYY/MM/DD
 vi YYYY/MM/DD/filename.md
 # populate blog contents
 
+docker build -t ltblog:latest .
 # run the server
 docker run -d --name ltblog -it --rm -p 8000:8000 -v $(pwd):/app ltblog:latest
 # generate the static site
-docker exec ltblog python build
+docker exec ltblog python build.py
 ```
 
 Now you can visit [http://localhost:8000](http://localhost:8000) in your web browser to view your new blog post.

@@ -2,6 +2,7 @@ import markdown
 import re
 import yaml
 import datetime
+import shutil
 from pathlib import Path
 from jinja2 import Template
 
@@ -28,12 +29,32 @@ def convert_mermaid_blocks(md_content):
     return re.sub(pattern, replacement, md_content, flags=re.DOTALL)
 
 
-def render_post(md_file, template_file, header_file, footer_file):
+def adjust_image_paths(md_content, base_url=""):
+    # Adjust image paths if needed
+    # This function uses regex to find markdown image syntax and adjust paths if necessary
+    pattern = r"!\[([^\]]*)\]\(([^)]+)\)"
+
+    def replace_path(match):
+        alt_text = match.group(1)
+        image_path = match.group(2)
+
+        # If the image path is relative, prepend the base_url if needed
+        if not image_path.startswith(("http://", "https://")):
+            image_path = f"{base_url}/{image_path}"
+
+        return f"![{alt_text}]({image_path})"
+
+    return re.sub(pattern, replace_path, md_content)
+
+
+def render_post(md_file, template_file, header_file, footer_file, base_url):
     metadata, md_content = parse_markdown(md_file)
 
     md_content = convert_mermaid_blocks(md_content)
 
     html_content = markdown.markdown(md_content, extensions=["fenced_code"])
+
+    md_content = adjust_image_paths(md_content, base_url)
 
     with open(template_file, "r") as f:
         template = Template(f.read())
@@ -114,13 +135,27 @@ def render_rss_feed(
         f.write(full_content)
 
 
+def copy_assets(source_dir, target_dir):
+    # Copy all files from source_dir to target_dir
+    if source_dir.exists():
+        shutil.copytree(source_dir, target_dir, dirs_exist_ok=True)
+
+
 if __name__ == "__main__":
+    source_assets_dir = Path("assets")
+    target_assets_dir = Path("public/assets")
+    copy_assets(source_assets_dir, target_assets_dir)
+
     # Find all markdown files and render them
     posts_dir = Path("posts")
     posts_data = []
     for md_file in posts_dir.rglob("*.md"):
         post_data = render_post(
-            md_file, "templates/post.html", "theme/header.html", "theme/footer.html"
+            md_file,
+            "templates/post.html",
+            "theme/header.html",
+            "theme/footer.html",
+            "https://lehigh-university-libraries.github.io/blog",
         )
         posts_data.append(post_data)
 
@@ -148,6 +183,7 @@ if __name__ == "__main__":
             prev_page,
             next_page,
         )
+
         render_rss_feed(
             posts=posts_data,
             template_file="templates/rss.xml",
