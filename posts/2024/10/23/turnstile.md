@@ -5,7 +5,7 @@ author: "Joe Corall"
 tags: ["drupal", "bots"]
 ---
 
-Our [Islandora](https://islandora.ca) repository, [The Lehigh Preserve](https://preserve.lehigh.edu), was being aggressively crawled by distributed bots on a fairly regular basis. To prevent these bots from increasing the load on our server we implemented a Drupal module [drupal/turnstile_protect](https://www.drupal.org/project/turnstile_protect) to prevent these bots from hitting computationally expensive pages on our site; namely our search index.
+Our [Islandora](https://islandora.ca) repository, [The Lehigh Preserve](https://preserve.lehigh.edu), was being aggressively crawled by distributed bots on a fairly regular basis. To prevent these bots from increasing the load on our server we implemented a Drupal module [drupal/turnstile_protect](https://www.drupal.org/project/turnstile_protect).
 
 
 ## The problem
