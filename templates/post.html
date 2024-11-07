@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <meta name="DC.author" content="{{ author }}">
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: true });
@@ -21,7 +22,7 @@
     <main class="p-5">
         <article>
             <h1>{{ title }}</h1>
-            <p><em>Published on {{ date }}</em></p>
+            <p><em>Published on {{ date }} by {{ author }}</em></p>
             <div class="content">
                 {{ content|safe }}
             </div>

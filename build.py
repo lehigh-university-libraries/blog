@@ -68,6 +68,7 @@ def render_post(md_file, template_file, header_file, footer_file, base_url):
     full_content = template.render(
         title=metadata.get("title", "Untitled"),
         date=metadata.get("date", ""),
+        author=metadata.get("author", "Lehigh University Library Technology"),
         content=html_content,
         tags=metadata.get("tags", []),
         header=header,
