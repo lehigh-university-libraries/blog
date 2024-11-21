@@ -6,8 +6,7 @@ WORKDIR /app
 
 # Copy the requirements (if you have one) and install them
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt && \
-    pygmentize -S paraiso-dark -f html > public/pygments.css
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
