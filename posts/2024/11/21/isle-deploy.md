@@ -75,8 +75,6 @@ Our dev server runs selenium to allow for functional javascript tests
             default:
                 aliases:
                     - selenium
-    selenium-ci:
-        <<: [*ci, *selenium]
 ```
 
 ### Rollout
