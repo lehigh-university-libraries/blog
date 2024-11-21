@@ -107,3 +107,32 @@
       </div>
   </div>
 </footer>
+
+<script>
+    document.querySelectorAll('code').forEach(code => {
+        // Create the button element
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.innerHTML = '<span class="material-icons">content_copy</span> Copy Code';
+
+        // Append the button to the <pre> block
+        code.prepend(button);
+
+        // Add copy functionality
+        button.addEventListener('click', () => {
+            const txt = code.innerText;
+
+            // Copy code content to the clipboard
+            navigator.clipboard.writeText(txt).then(() => {
+                // Provide feedback to the user
+                button.innerHTML = '<span class="material-icons">check</span> Copied!';
+                setTimeout(() => {
+                    button.innerHTML = '<span class="material-icons">content_copy</span> Copy Code';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    });
+
+</script>
