@@ -1,5 +1,5 @@
 ---
-title: "Continiously Deploying an Islandora website"
+title: "Continuously Deploying an Islandora website"
 date: "2024-11-21"
 author: "Joe Corall"
 tags: ["islandora", "drupal", "ci/cd"]
