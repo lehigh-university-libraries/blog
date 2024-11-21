@@ -52,7 +52,9 @@ def render_post(md_file, template_file, header_file, footer_file, base_url):
 
     md_content = convert_mermaid_blocks(md_content)
 
-    html_content = markdown.markdown(md_content, extensions=["fenced_code"])
+    html_content = markdown.markdown(
+        md_content, extensions=["fenced_code", "codehilite"]
+    )
 
     md_content = adjust_image_paths(md_content, base_url)
 
