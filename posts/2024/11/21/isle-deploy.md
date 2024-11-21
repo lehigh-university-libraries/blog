@@ -105,7 +105,7 @@ We created a special [rollout http service](https://github.com/lehigh-university
           - /home/rollout/.ssh:/root/.ssh
           # pass in the .gitconfig for any overrides we need
           - /home/rollout/.gitconfig:/root/.gitconfig
-          # need to pass the docker identity to allow git pull from our private registry
+          # need to pass the docker identity to allow docker pull from our private registry
           - /home/rollout/.docker:/root/.docker
           # need access to the docker daemon to run docker composer and docker pull
           - /var/run/docker.sock:/var/run/docker.sock
@@ -115,7 +115,7 @@ We created a special [rollout http service](https://github.com/lehigh-university
             # used in rollout script to perform certain actions depending on environment
             HOST: $HOST
             DOMAIN: $DOMAIN
-            # used for the rollout service auth
+            # used for the rollout service JWT auth
             JWKS_URI: https://${GITLAB_DOMAIN}/oauth/discovery/keys
             JWT_AUD: $HOST
             CUSTOM_CLAIMS: '{"project_path": "lts-library/i2", "ref": "staging"}'
