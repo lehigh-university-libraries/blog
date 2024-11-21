@@ -127,7 +127,7 @@ We created a special [rollout http service](https://github.com/lehigh-university
 
 ## CI Pipeline
 
-With those two new services, it was a matter of building our CI pipeline using GitLab's `.gitlab-ci.yml` YAML syntax. A brief overview of ours, where we first defined the stages and that when a new push comes in, the existing workflow is cancelled.
+With those two new services, it was a matter of building our CI pipeline using GitLab's `.gitlab-ci.yml` YAML syntax. First we defined the workflow stages. We also added an option to cancel any running workflows if a new git push comes in while a workflow is running.
 
 ```yaml
 workflow:
@@ -141,7 +141,7 @@ stages:
   - cleanup
 ```
 
-Where we have the first build/lint/test step defined as
+The first build/lint/test step defined as
 
 ```yaml
 build-lint-test:
@@ -177,7 +177,7 @@ push:
     - isle
 ```
 
-Assumming the push succeeds, the docker image is deployed to staging
+Assumming the push succeeds, the docker image is deployed to our staging server
 
 ```yaml
 deploy_stage:
@@ -220,7 +220,7 @@ deploy_prod:
 
 ## On php tests
 
-We opted to use [drupal/dtt](https://www.drupal.org/project/dtt) to base our tests on. This allows us to just utilize our always on dev server, which is running our production site config and content, to run our tests on using that site. We found a problem with self signed CA certificates causing issues between functional/unit tests and functional javascript tests, so for the time being we run two different php unit jobs:
+We opted to use [drupal/dtt](https://www.drupal.org/project/dtt) to base our tests on. This allows us to just utilize our always on dev server, which is running our production site config and content, to run our tests on using that site. We found a problem with self signed CA certificates causing issues between functional/unit tests and functional javascript tests, so until we resolve that issue we just run two different php unit jobs:
 
 ```bash
 #!/usr/bin/env bash
@@ -245,7 +245,8 @@ docker exec \
     --verbose"
 ```
 
-The two files look the same:, just one specifies
+The two files look the same:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/weitzman/drupal-test-traits/src/bootstrap-fast.php">
@@ -269,6 +270,7 @@ but one runs our functional/unit tests
     </testsuites>
 </phpunit>
 ```
+
 and the other runs our functional javascript tests
 
 ```xml
@@ -279,6 +281,8 @@ and the other runs our functional javascript tests
     </testsuites>
 </phpunit>
 ```
+
+You can see some of our tests at https://github.com/lehigh-university-libraries/lehigh_islandora/tree/main/tests/src
 
 ## Future improvements
 
