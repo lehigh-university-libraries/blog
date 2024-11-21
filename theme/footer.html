@@ -120,8 +120,7 @@
 
         // Add copy functionality
         button.addEventListener('click', () => {
-            const txt = code.innerText;
-
+            const txt = code.innerText.replace(/^.*\n.*\n/, '');
             // Copy code content to the clipboard
             navigator.clipboard.writeText(txt).then(() => {
                 // Provide feedback to the user
