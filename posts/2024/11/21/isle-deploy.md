@@ -282,7 +282,7 @@ and the other runs our functional javascript tests
 </phpunit>
 ```
 
-You can see some of our tests at https://github.com/lehigh-university-libraries/lehigh_islandora/tree/main/tests/src
+You can see some of our tests at [https://github.com/lehigh-university-libraries/lehigh_islandora/tree/main/tests/src](https://github.com/lehigh-university-libraries/lehigh_islandora/tree/main/tests/src)
 
 ## Future improvements
 
