@@ -218,7 +218,7 @@ deploy_prod:
 
 ## On php tests
 
-We opted to use [drupal/dtt](https://www.drupal.org/project/dtt) to base our tests on. This allows us to just utilize our always on dev server, which is running our production site config and content, to run our tests on using that site. We found a problem with self signed CA certificates causing issues between functional/unit tests and functional javascript tests, so until we resolve that issue we just run two different php unit jobs:
+We opted to use [drupal/dtt](https://www.drupal.org/project/dtt) to base our tests on. This allows us to just utilize our always on dev server, which is running our production site config and content, to run our tests against. We found a problem with self signed CA certificates causing issues between functional/unit tests and functional javascript tests, so until we resolve that issue we just run two different php unit jobs:
 
 ```bash
 #!/usr/bin/env bash
@@ -284,6 +284,6 @@ You can see some of our tests at [https://github.com/lehigh-university-libraries
 
 ## Future improvements
 
-We've been using this pipeline as describe for about seven months with little to no after it was initially implemented. The only thing we'd like more of are more phpunit tests to ensure better push safety.
+We've been using this pipeline as describe for about seven months with little to no issues after it was initially implemented. The only thing we'd like more of are phpunit tests to ensure better push safety.
 
 We also hope to eventually encapsulate this using something like [dagger.io](https://dagger.io/) so the pipeline could be shared and used by any CI/CD system (e.g. GitHub).
