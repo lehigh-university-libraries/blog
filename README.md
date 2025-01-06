@@ -10,8 +10,8 @@ You can run the site locally.
 git clone git@github.com:lehigh-university-libraries/blog.git
 cd blog
 # replace with actual year/month/day
-mkdir -p YYYY/MM/DD
-vi YYYY/MM/DD/filename.md
+mkdir -p posts/YYYY/MM/DD
+vi posts/YYYY/MM/DD/filename.md
 # populate blog contents
 
 docker build -t ltblog:latest .
