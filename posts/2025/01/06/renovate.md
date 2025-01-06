@@ -5,7 +5,7 @@ author: "Joe Corall"
 tags: ["islandora", "docker", "appsec", "mend.io", "renovate", "github-actions"]
 ---
 
-We recently worked with [the Islandora Community](https://islandora.ca) to help keep the security posture for the docker images provided by the Islandora Open Source project [Islandora-Devops/isle-buildkit](https://github.com/islandora-devops/isle-buildkit) up to date thanks to [Mend's Renovate CLI](https://www.mend.io/renovate/). Here at Lehigh we utilize those community-supported docker images in our own digital repository [The Lehigh Preserve](https://preserve.lehigh.edu). So adding this integration was a win-win; since the community repo is receiving the automated updates, all instituitions using these images can stay up-to-date, and as a result our instance stays up-to-date, too.
+We recently collaborated with [the Islandora Community](https://islandora.ca) to enhance the security posture of the Docker images provided by the Islandora Open Source project [Islandora-Devops/isle-buildkit](https://github.com/islandora-devops/isle-buildkit) utilizing [Mend's Renovate CLI](https://www.mend.io/renovate/) to keep dependencies up to date. Here at Lehigh we utilize the community-supported Docker images in our own digital repository [The Lehigh Preserve](https://preserve.lehigh.edu). Adding this integration has been a win-win: the community repository benefits from automated updates, ensuring all institutions using these images stay up-to-date, and, in turn, our instance remains up-to-date as well.
 
 ## Background
 
