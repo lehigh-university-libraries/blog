@@ -11,7 +11,7 @@ We recently collaborated with [the Islandora Community](https://islandora.ca) to
 
 Over the 2024 winter holiday I happened to come across a CVE advisory (that was several weeks old) for a piece of software I knew handled web traffic for some of our services running in our Islandora stack. In this particular case I knew the service was only accessible from `localhost` so the threat was minor, but it had me concerned what other CVEs might be out there undetected. And going forward how quickly we will find/patch new CVEs for dependencies in our software.
 
-This general problem had been top of mind, as I had recently been integrating [Mend's Renovate](https://www.mend.io/renovate/) with some of our local repositories here at Lehigh. This endevaour was initiated by reading some glowing reviews for the renovate bot in [hangops slack](https://github.com/hangops) and more recently hearing about some successes shared in [CODE4LIB's #devops slack channel](https://code4lib.org/irc/).
+This general problem had been top of mind, as I had recently been integrating [Mend's Renovate](https://www.mend.io/renovate/) with some of our local repositories here at Lehigh. This endevaor was initiated by reading some glowing reviews for the renovate bot in [hangops slack](https://github.com/hangops) and more recently hearing about some successes shared in [CODE4LIB's #devops slack channel](https://code4lib.org/irc/).
 
 From [Mend's datasheet for Renovate](https://www.mend.io/wp-content/uploads/2023/09/Mend-Renovate-Enterprise-data-sheet.pdf) the problem renovate aims to solve is
 
@@ -119,6 +119,8 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
       - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4
         with:
           node-version: 20
