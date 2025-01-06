@@ -5,6 +5,22 @@ import datetime
 import shutil
 from pathlib import Path
 from jinja2 import Template
+from markdown.extensions import Extension
+from markdown.treeprocessors import Treeprocessor
+import xml.etree.ElementTree as etree
+
+
+class BlockquoteStyler(Treeprocessor):
+    def run(self, root):
+        for blockquote in root.findall(".//blockquote"):
+            # Add a class to blockquotes
+            blockquote.attrib["class"] = "styled-blockquote"
+        return root
+
+
+class BlockquoteExtension(Extension):
+    def extendMarkdown(self, md):
+        md.treeprocessors.register(BlockquoteStyler(md), "blockquote_styler", 25)
 
 
 def parse_markdown(md_file):
@@ -53,7 +69,7 @@ def render_post(md_file, template_file, header_file, footer_file, base_url):
     md_content = convert_mermaid_blocks(md_content)
 
     html_content = markdown.markdown(
-        md_content, extensions=["fenced_code", "codehilite"]
+        md_content, extensions=["fenced_code", "codehilite", BlockquoteExtension()]
     )
 
     md_content = adjust_image_paths(md_content, base_url)
