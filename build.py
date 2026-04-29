@@ -140,7 +140,9 @@ def render_rss_feed(
     with open(template_file, "r") as f:
         template = Template(f.read())
 
-    build_date = datetime.datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+    build_date = datetime.datetime.now(datetime.UTC).strftime(
+        "%a, %d %b %Y %H:%M:%S GMT"
+    )
 
     full_content = template.render(
         posts=posts,
